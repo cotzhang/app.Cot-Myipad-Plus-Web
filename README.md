@@ -10,7 +10,7 @@ Web client of Cot-Myipad-Plus
 [桌面客户端Github](https://github.com/cotzhang/app.Cot-Myipad-Plus)
 ```
 
-![image](https://user-images.githubusercontent.com/107354861/215307992-bb22f977-ce3c-4a39-a47d-ffa74cb1eb5b.png)
+![image](https://user-images.githubusercontent.com/107354861/215308819-bad8143c-0a80-4edf-9dda-4161c98ccad8.png)
 ![image](https://user-images.githubusercontent.com/107354861/215308275-bdcb365f-db94-4fd1-b78d-ceca859691a8.png)
 
 ## 功能
