@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="favicon.png">
+	<meta name="description" content="" />
+	<meta name="keywords" content="bootstrap, bootstrap5" />
+	<link rel="stylesheet" href="fonts/icomoon/style.css">
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="css/tiny-slider.css">
+	<link rel="stylesheet" href="css/aos.css">
+	<link rel="stylesheet" href="css/glightbox.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/flatpickr.min.css">
+	<title>平板+</title>
+</head>
+
+<body>
+	<img src="./images/cmbg.jpg" id="img1" style="position: fixed;top: 0px;left: 0px;right: 0px;left: 0px;">
+	<img src="" id="img2" style="position: fixed;top: 0px;left: 0px;right: 0px;left: 0px;visibility: hidden;">
+	<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
+	<style type="text/css">
+	@font-face {
+		font-family: 'misans';
+		src: url('../font/misans.ttf');
+	}
+
+	.hero,
+	.hero>.container>.row {
+		height: auto;
+	}
+	</style>
+	<nav class="site-nav">
+		<div class="container">
+			<div class="menu-bg-wrap">
+				<div class="site-navigation">
+					<div class="row g-0 align-items-center">
+						<div class="col-2">
+							<a href="index.html" class="logo m-0 float-start" style="width:70px">平板+</a>
+						</div>
+						<div class="col-10 text-end ">
+							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
+								<li class="active"><a href="index.html">首页</a></li>
+								<li><a href="" onclick="window.open('https://cotx.tech')">少年派网页版</a></li>
+								<!--li class="has-children">
+									<a href="financing.html">Pages</a>
+									<ul class="dropdown">
+										<li><a href="financing.html">Financing</a></li>
+										<li><a href="single.html">Blog Single</a></li>
+										<li><a href="case-study.html">Case Study Detail</a></li>
+										<li><a href="#">Menu One</a></li>
+										<li><a href="#">Menu Two</a></li>
+										<li class="has-children">
+											<a href="#">Dropdown</a>
+											<ul class="dropdown">
+												<li><a href="#">Sub Menu One</a></li>
+												<li><a href="#">Sub Menu Two</a></li>
+												<li><a href="#">Sub Menu Three</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li><a href="services.html">Services</a></li-->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="hero overlay" style="background:#00000000">
+		<div class="container">
+			<div class="row align-items-center justify-content-between pt-5">
+				<div class="col-lg-6 text-center text-lg-start pe-lg-5">
+					<h1 class="heading text-white mb-3" data-aos="fade-up">平板文件导出</h1>
+					<p class="text-white mb-5" data-aos="fade-up" data-aos-delay="100">导出睿易平板自主学习课件/文件，在线预览视频</p>
+					<div class="align-items-center mb-5 mm" data-aos="fade-up" data-aos-delay="200">
+						<a href="https://storage-1303195148.cos.ap-guangzhou.myqcloud.com/app/cmp_inst.exe" class="btn btn-outline-white-reverse me-4">下载(Windows)</a>
+						<a href="" onclick="window.open('https://github.com/cotzhang/app.Cot-Myipad-Plus')" class="text-white">源代码</a>
+					</div>
+				</div>
+				<div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+					<div class="img-wrap">
+						<img src="images/pad.png" alt="Image" class="img-fluid rounded" style="backdrop-filter:blur(20px);background-color: #ffffff33;">
+					</div>
+				</div>
+				<div style="color: white;margin-bottom: 32px;background-color: #0005;margin-top: 32px;border-radius: 8px;padding: 16px;">
+					<h2>功能概览</h2>
+					<h3>- 抓取自主学习内容</h3>
+					<ul>
+						<li><input checked="" disabled="" type="checkbox"> 高效率抓取自主学习内容（广州中学服务器测试抓取500条用时15秒）</li>
+						<li><input checked="" disabled="" type="checkbox"> 自动将自主学习内容存储为json格式</li>
+						<li><input checked="" disabled="" type="checkbox"> 查看老师的所有备课文件</li>
+						<li><input checked="" disabled="" type="checkbox"> 查看老师的未来备课文件（考试试卷屏蔽）</li>
+						<li><input checked="" disabled="" type="checkbox"> 查看老师已删除的备课文件</li>
+						<li><input checked="" disabled="" type="checkbox"> 查看老师已隐藏的备课文件</li>
+						<li><input checked="" disabled="" type="checkbox"> 导出老师的所有备课课件与视频</li>
+						<li><input checked="" disabled="" type="checkbox"> 备课视频免下载在线预览</li>
+						<li><input checked="" disabled="" type="checkbox"> GUID查看</li>
+						<li><input checked="" disabled="" type="checkbox"> 具体详情查看（计划日期，计划终止日期，布置班级，状态，同步时间，作者，GUID）</li>
+						<li><input checked="" disabled="" type="checkbox"> 新备课通知提醒</li>
+						<li><input checked="" disabled="" type="checkbox"> 抓取详细进度显示</li>
+						<li><input checked="" disabled="" type="checkbox"> 自主学习备课搜索</li>
+						<li><input checked="" disabled="" type="checkbox"> 自主学习备课正则搜索</li>
+					</ul>
+					<h3>- 自主学习题目作答（答题卡功能）</h3>
+					<ul>
+						<li><input checked="" disabled="" type="checkbox"> 进行自主学习题目作答</li>
+						<li><input checked="" disabled="" type="checkbox"> 选择题目自动校对（做一题校对一题）</li>
+						<li><input checked="" disabled="" type="checkbox"> 多选题目自动校对选项</li>
+						<li><input checked="" disabled="" type="checkbox"> 进行自主学习题目自动完成（答案100%正确）</li>
+						<li><input checked="" disabled="" type="checkbox"> 查看老师的作业批改情况</li>
+						<li><input checked="" disabled="" type="checkbox"> 查看作业分数及得分率</li>
+						<li><input checked="" disabled="" type="checkbox"> 上传答题图片作答大题</li>
+						<li><input checked="" disabled="" type="checkbox"> 作业批改通知提醒</li>
+						<li><input checked="" disabled="" type="checkbox"> 文本作答大题</li>
+						<li><input checked="" disabled="" type="checkbox"> 重新修改已提交未批改的题目或大题</li>
+						<li><input checked="" disabled="" type="checkbox"> 答题卡前端固定</li>
+						<li><input checked="" disabled="" type="checkbox"> 一键清空已有答案</li>
+					</ul>
+					<h3>- 资源库功能</h3>
+					<ul>
+						<li><input checked="" disabled="" type="checkbox"> 查看平板资源库内容</li>
+						<li><input checked="" disabled="" type="checkbox"> 导出平板资源库文件</li>
+						<li><input checked="" disabled="" type="checkbox"> 创建目录、路径</li>
+						<li><input checked="" disabled="" type="checkbox"> 忽略平板文件上传权限限制</li>
+						<li><input checked="" disabled="" type="checkbox"> 批量上传文件（上限40个）</li>
+						<li><input checked="" disabled="" type="checkbox"> 免破解上传文件到平板</li>
+					</ul>
+					<h3>- 抓取睿易云内容</h3>
+					<ul>
+						<li><input checked="" disabled="" type="checkbox"> 自动将睿易云内容存储为json格式</li>
+						<li><input checked="" disabled="" type="checkbox"> 在自主学习列表中按时间顺序插入睿易云内容</li>
+						<li><input checked="" disabled="" type="checkbox"> 完成睿易云练习</li>
+						<li><input checked="" disabled="" type="checkbox"> 优化的睿易云练习界面</li>
+						<li><input checked="" disabled="" type="checkbox"> 将睿易云练习的链接导出</li>
+						<li><input checked="" disabled="" type="checkbox"> 列表界面查看完成人数 完成率</li>
+					</ul>
+					<h3>- 查看睿易云学情分析</h3>
+					<ul>
+						<li><input checked="" disabled="" type="checkbox"> 支持查看考试成绩、练习成绩</li>
+					</ul>
+					<h3>- 进行睿易云练习</h3>
+					<ul>
+						<li><input checked="" disabled="" type="checkbox"> 使用睿易云在线题库进行练习（部分学校未配置，只有默认题目）</li>
+					</ul>
+					<h3>- 观看课堂录制</h3>
+					<ul>
+						<li><input checked="" disabled="" type="checkbox"> 课堂实录导出</li>
+						<li><input checked="" disabled="" type="checkbox"> 课堂实录节点播放</li>
+						<li><input checked="" disabled="" type="checkbox"> 在线预览课程视频</li>
+						<li><input checked="" disabled="" type="checkbox"> 课堂实录视频导出</li>
+					</ul>
+					<h3>- 后台功能</h3>
+					<ul>
+						<li><input checked="" disabled="" type="checkbox"> 开机启动</li>
+						<li><input checked="" disabled="" type="checkbox"> 托盘运行</li>
+						<li><input checked="" disabled="" type="checkbox"> 新备课通知提醒</li>
+						<li><input checked="" disabled="" type="checkbox"> 作业批改通知提醒</li>
+						<li><input checked="" disabled="" type="checkbox"> 后台自动同步</li>
+						<li><input checked="" disabled="" type="checkbox"> 托盘快速启动</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div> <!-- /.site-footer -->
+	<!-- Preloader -->
+	<div id="overlayer"></div>
+	<div class="loader">
+		<div class="spinner-border text-primary" role="status">
+			<span class="visually-hidden">Loading...</span>
+		</div>
+	</div>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/tiny-slider.js"></script>
+	<script src="js/flatpickr.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/glightbox.min.js"></script>
+	<script src="js/navbar.js"></script>
+	<script src="js/counter.js"></script>
+	<script src="js/custom.js"></script>
+	<script type="text/javascript">
+	let img1 = document.getElementById('img1')
+	let img2 = document.getElementById('img2')
+	let currimg = 1;
+
+	function loadImg() {
+		let operimg = (currimg % 2 == 0) ? img2 : img1;
+		let unoperimg = (currimg % 2 == 0) ? img1 : img2;
+		operimg.src = `https://picsum.photos/${document.body.clientWidth}/${document.body.clientHeight}?ts=${new Date().getTime()}`;
+		operimg.onload = function() {
+			operimg.style.visibility = "visible";
+			unoperimg.style.visibility = "hidden";
+			currimg++;
+			setTimeout(loadImg, 1200)
+		}
+	}
+	window.onload = function() { setTimeout(loadImg, 1000) }
+	</script>
+</body>
+
+</html>

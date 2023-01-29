@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="睿易,少年派,平板,网页版,第三方,睿易平板,睿易少年派">
+	<link rel="stylesheet" type="text/css" href="panelistic3.0-electron.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<script src="panelistic3.0-electron.js"></script>
+	<link href="maticons.css" rel="stylesheet">
+	<title>睿易少年派网页版</title>
+</head>
+
+<body style="background-image: url(./images/cmbg.jpg);">
+	<div id="loader" style="position: absolute;top: 0px;left: 0px;height: 100%;width: 100%;background-color: white;z-index: 99999;text-align: center;opacity: 1;transition: 0.8s;">
+		<div style="vertical-align: middle;top: calc(50% - 66px);position: relative;"><img src="snpicon.png" style="height: 84px;width: 84px;" title="加载中...请稍等" ondragstart="return false"><br><br><span id="loadermsg">正在加载网页</span><br><br>不想等待？<a style="color: blue;cursor: pointer;" onclick="window.open('https://cotx.tech/#/padplus')">下载 平板+ 客户端</a></div>
+	</div>
+	<div id="headbar" style="padding: 8px;background-color: #fff;"><img src="snpicon.png" style="height: 50px;width: 50px;margin: 8px;vertical-align: middle;">
+		<h1 style="margin: 10px;display: inline;vertical-align: middle;font-weight: bold;">少年派网页版</h1>
+	</div>
+	<div id="panelistic_blur"></div>
+	<div id="panelistic_content" style="-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);background-color:#fff8">
+		<div id="panelistic_sidebar" style="display:inline-block;">
+			<span class="panelistic_sidebar_placeholder"></span>
+			<div style="background-color: #fff8;padding: 8px;">
+				<div class="panelistic_sidebar_title" id="panelistic_sidebar_title">未登录</div>
+				<div class="panelistic_sidebar_subtitle" id="panelistic_sidebar_subtitle">请先登录</div>
+			</div>
+			<span class="panelistic_sidebar_placeholder"></span>
+			<div id="select1" class="panelistic_sidebar_selection" onclick="window.open('https://cotx.tech/#/padplus')"><span class="material-icons" style="vertical-align: middle;display: inline-block;">browser_updated</span><span style="display: inline-block;vertical-align: middle;">&nbsp;下载客户端</span></div>
+			<div id="select1" class="panelistic_sidebar_selection" onclick="selfLearn()"><span class="material-icons" style="vertical-align: middle;display: inline-block;">dashboard</span><span style="display: inline-block;vertical-align: middle;">&nbsp;自主学习</span></div>
+			<div id="select1" class="panelistic_sidebar_selection" onclick="openRyYun('/web/practice/index.html')"><span class="material-icons" style="vertical-align: middle;display: inline-block;">cloud</span><span style="display: inline-block;vertical-align: middle;">&nbsp;睿易云</span></div>
+			<!-- 				<div id="select1" class="panelistic_sidebar_selection" onclick="openChatWin()"><span class="material-icons" style="vertical-align: middle;display: inline-block;">question_answer</span><span style="display: inline-block;vertical-align: middle;">&nbsp;在线答疑</span></div>
+ -->
+			<!-- 			<div id="select1" class="panelistic_sidebar_selection" onclick="openRyYun('/web/analyse/index.html#/AnalysisLists?backUrl=%2FNewHome',true)"><span class="material-icons" style="vertical-align: middle;display: inline-block;">assessment</span><span style="display: inline-block;vertical-align: middle;">&nbsp;学情分析</span></div>
+ -->
+			<!-- 			<div id="select1" class="panelistic_sidebar_selection" onclick="openRyYun('/web/practice/index.html#/InterResetStudy')"><span class="material-icons" style="vertical-align: middle;display: inline-block;">fact_check</span><span style="display: inline-block;vertical-align: middle;">&nbsp;在线题库</span></div> -->
+			<!-- 		<div id="select1" class="panelistic_sidebar_selection" onclick="iframe.src = ('/library.html')"><span class="material-icons" style="vertical-align: middle;display: inline-block;">folder_zip</span><span style="display: inline-block;vertical-align: middle;">&nbsp;我的资源库</span></div>
+			<div id="select1" class="panelistic_sidebar_selection" onclick="iframe.src = ('/classrecord.html')"><span class="material-icons" style="vertical-align: middle;display: inline-block;">movie</span><span style="display: inline-block;vertical-align: middle;">&nbsp;课堂实录</span></div> -->
+			<!-- <div id="select2" class="panelistic_sidebar_selection" onclick="iframe.src = ('/mypad.html')"><span class="material-icons" style="vertical-align: middle;display: inline-block;">screen_share</span><span style="display: inline-block;vertical-align: middle;">&nbsp;我的设备</span></div> -->
+			<!--div id="select1" class="panelistic_sidebar_selection" onclick="if(!fs.existsSync('/downloads')){fs.mkdirSync('/downloads')}electron.shell.openPath('/downloads')">下载的文件</div-->
+			<!-- 			<div id="select2" class="panelistic_sidebar_selection" onclick="iframe.src = ('/account.html')"><span class="material-icons" style="vertical-align: middle;display: inline-block;">settings_applications</span><span style="display: inline-block;vertical-align: middle;">&nbsp;账号与设置</span></div> -->
+			<div id="select2" class="panelistic_sidebar_selection" onclick="iframe.src='https://storage-1303195148.cos.ap-guangzhou.myqcloud.com/website/webmdl/pushs/SubPage.html'"><span class="material-icons" style="vertical-align: middle;display: inline-block;">disabled_by_default</span><span style="display: inline-block;vertical-align: middle;">&nbsp;退出账号</span></div>
+			<span style="margin:8px;font-size: 14px;margin-top: 24px;display: block;">以下功能暂不支持，<br>需要 <a style="color: blue;cursor: pointer;" onclick="window.open('https://cotx.tech/#/padplus')">下载 平板+ 客户端</a></span>
+			<div style="margin:12px;background-color:#fff5;border: #666;height: calc(100% - 358px);display: block;overflow: auto;margin-bottom: 0px;">
+				<div id="select1" class="panelistic_sidebar_selection" onclick="window.open('https://cotx.tech/#/padplus')">
+					<span style="display: block;vertical-align: middle;padding: 4px">自动同步</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-搜索</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-全部显示</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-一键打开</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-文件另存为</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-动态加载</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-日期分类</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-预加载</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-在线预览</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-详情查看</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-未来查看</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-新增通知</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-答题卡</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-自动校对</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-自动完成</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">自主学习-批改提醒</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">资源库-导出文件</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">资源库-文件上传平板</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">资源库-批量上传</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">睿易云-自动登录</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">睿易云-合并显示</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">睿易云-优化界面</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">睿易云题库-优化界面</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">学情分析-优化界面</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">课堂实录-节点观看</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">课堂实录-导出视频</span>
+					<span style="display: block;vertical-align: middle;padding: 4px">课堂实录-全校课程抓取</span>
+				</div>
+			</div>
+		</div>
+		<iframe id="iframe" src="pushs/SubPage.html"></iframe>
+	</div>
+	<script type="text/javascript">
+	let loader = document.getElementById('loader')
+	let loadermsg = document.getElementById('loadermsg')
+	let panelistic;
+	let iframe = document.getElementById('iframe');
+	let loadTimeout;
+
+	window.onload = function() {
+		hideLoader()
+		panelistic = new Panelistic();
+		panelistic.initialize()
+		window.panelistic = panelistic;
+		autoAdapt()
+	}
+
+	window.setTmo = function() {
+		loadTimeout = setTimeout(function() {
+			hideLoader();
+			iframe.src = "pushs/SubPage.html";
+			window.panelistic.dialog.alert("登录失败", "连接到服务器超时，请重试", "确定");
+		}, 18000)
+	};
+
+	window.onresize = function() {
+		autoAdapt()
+	}
+
+	window.showLoader = function(callback) {
+		loader.style.display = "block";
+		setTimeout(function() {
+			loader.style.opacity = "1";
+			setTimeout(function() { if (callback) callback() }, 800)
+		}, 200)
+	}
+
+	window.hideLoader = function(callback) {
+		loader.style.opacity = "0";
+		setTimeout(function() {
+			loader.style.display = "none";
+			if (callback) callback()
+		}, 800)
+	}
+
+	window.setLoaderMsg = function(msg) {
+		loadermsg.innerText = msg;
+	}
+
+	window.addEventListener("message", receiveMessage, false);
+
+	let loginstate = false;
+
+	let usercfg, userguid;
+	let msgslt;
+
+	function receiveMessage(event) {
+		if (event.data == "finishall") {
+			loginstate = true;
+			setTimeout(hideLoader, 1000)
+		} else if (event.data == "errorlogin") {
+			hideLoader();
+			iframe.src = "/pushs/SubPage.html";
+			window.panelistic.dialog.alert("登录失败", "请检查账号是否正确", "确定")
+		} else if (event.data == "正在获取数据") {
+			setLoaderMsg(event.data)
+			clearTimeout(loadTimeout)
+		} else if (event.data == "goAd") {
+			window.open('https://cotx.tech/#/padplus')
+		} else if (event.data == "salert") {
+			msgslt = window.panelistic.dialog.salert('请稍等')
+		} else if (event.data == "dmsalert") {
+			window.panelistic.dialog.dismiss(msgslt)
+		} else if (event.data.indexOf('user') != -1) {
+			console.warn('userdata got')
+			setLoaderMsg('正在下载文件')
+			let dtstr = event.data.split(';');
+			document.getElementById("panelistic_sidebar_title").innerText = dtstr[1]
+			document.getElementById("panelistic_sidebar_subtitle").innerText = dtstr[2]
+			userguid = dtstr[3]
+		} else { setLoaderMsg(event.data) }
+	}
+
+	function selfLearn() {
+		if (!loginstate) {
+			iframe.src = "https://storage-1303195148.cos.ap-guangzhou.myqcloud.com/website/webmdl/pushs/SubPage.html"
+		} else {
+			iframe.src = `https://${usercfg[0]}/GetTemporaryStorage?filename=MyipadWeb.html#${usercfg[1]}`
+		}
+	}
+
+	function autoAdapt() {
+		if (window.innerWidth < 600) {
+			document.getElementById('panelistic_sidebar').style.display = "none";
+			iframe.style.width = "100%"
+		} else {
+			document.getElementById('panelistic_sidebar').style.display = "inline-block";
+			iframe.style.width = "calc(100% - 230px)"
+		}
+	}
+
+	function openRyYun(urlsite) {
+		if (!loginstate) {
+			// iframe.src = "https://storage-1303195148.cos.ap-guangzhou.myqcloud.com/website/webmdl/pushs/SubPage.html"
+		} else {
+			let server = usercfg[0]
+			iframe.src = 'https://' + (server.split('.')[0] + 'res.' + server.split('.')[1] + '.' + server.split('.')[2]).split(':')[0] + ':8008' + '/login/home/goLogin?userid=' + userguid;
+			// iframe.onload = function() {
+			// 	// iframe.src = 'https://' + (server.split('.')[0] + 'res.' + server.split('.')[1] + '.' + server.split('.')[2]).split(':')[0] + ':8008' + '/web/practice/index.html'
+			// }
+		}
+	}
+
+	window.loadDatain = function(data) {
+		usercfg = data
+	}
+
+	let frameloadsal = 0;
+	// iframe.onchange = function() {
+	// 	frameloadsal=window.panelistic.dialog.salert("正在加载...")
+	// }
+	// iframe.onload = function() {
+	// 	window.panelistic.dialog.dismiss(frameloadsal)
+	// }
+	</script>
+	<!-- 	<script src="localforage.min.js"></script>
+ -->
+	<script src="jquery.min.js"></script>
+	<!-- 	<script src="fakefs.js"></script>
+ -->
+	<!-- 	<script src="func.js"></script>
+ -->
+	<!-- 	<script src="procedure.js"></script>
+ -->
+</body>
+
+</html>

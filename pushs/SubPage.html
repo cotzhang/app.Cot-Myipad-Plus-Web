@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../panelistic3.0-electron.css">
+  <script src="../panelistic3.0-electron.js"></script>
+  <title>网页版登录</title>
+</head>
+
+<body>
+  <div class="panelistic_content" style="padding: 16px;">
+    <h1>网页版登录</h1>
+    <h6>请登录您的平板账号</h6>
+    <span class="panelistic_placeholder"></span>
+    <div class="panelistic_panel">
+      <div class="panelistic_panel_name">下载应用</div><br /><span class="panelistic_placeholder_large"></span>
+      <img src="https://storage-1303195148.cos.ap-guangzhou.myqcloud.com/website/webmdl/icon.png" style='height:64px;padding-left:6px' />
+      <div style="display: inline-block;
+    height: 40px;
+    vertical-align: top;
+    margin: 8px;"><span style="    font-size: 18px;
+    font-weight: bold;">平板+</span><br /><span style="font-size: 15px;">睿易少年派桌面客户端</span></div>
+      <br />
+      <input type="button" value="下载（WINDOWS）" style="margin: 4px;" onclick="window.open('https://storage-1303195148.cos.ap-guangzhou.myqcloud.com/app/cmp_inst.exe')" />
+      <input type="button" value="查看详情" style="margin: 4px;" onclick="window.open('https://cotx.tech/#/padplus')" />
+    </div>
+    <span class="panelistic_placeholder"></span>
+    <div class="panelistic_panel">
+      <div class="panelistic_panel_name">选择学校</div><br><span class="panelistic_placeholder_large"></span>
+      <select id="school">
+        <option>广州中学凤凰校区</option>
+        <option>梧州高级中学</option>
+        <option>山东青岛第二中学</option>
+        <option>其他学校</option>
+      </select>
+      <span class="panelistic_placeholder"></span>
+      <input type="text" name="serverhost" id="serverhostinput" placeholder="或者手动输入服务器地址">
+      <span class="panelistic_placeholder"></span>
+      <input onclick="pushFile()" type="submit" value="确定" class="full-button">
+    </div>
+    <span class="panelistic_placeholder"></span>
+    <div class="panelistic_panel">
+      <div class="panelistic_panel_name">登录</div><br><span class="panelistic_placeholder_large"></span>
+      <input type="text" value="" placeholder="请输入6位数账号" id="zhanghao"><br>
+      <span class="panelistic_placeholder"></span>
+      <div class="panelistic_checkbox"><input type="checkbox" id="autologin"><span class="panelistic_checkbox_text">自动登录</span></div>
+      <span class="panelistic_placeholder"></span>
+      <input onclick="pushFile()" type="submit" value="登录" style="cursor: pointer;" class="full-button">
+    </div>
+  </div>
+</body>
+<script>
+const serverHostInput = document.getElementById("serverhostinput")
+const servers = ["gzzx.lexuewang.cn:8003", "wzgjzx.lexuewang.cn:8003", "qdez.lexuewang.cn:8003"]
+
+function pushFile(argument) {
+  window.parent.window.setLoaderMsg("正在推送文件")
+  if (document.getElementById('autologin').checked) { window.localStorage.setItem('autologin', "true") } else { window.localStorage.setItem('autologin', "false") }
+  putInit()
+  window.parent.window.showLoader(() => {})
+}
+async function putInit() {
+  let serverADDR = serverHostInput.value ? serverHostInput.value : (servers[document.getElementById('school').selectedIndex])
+  // let panid = window.parent.window.panelistic.dialog.salert('正在登录')
+  try {
+    await fetch(`https://${serverADDR}/PutTemporaryStorage?filename=MyipadWeb.html`, {
+      method: 'POST',
+      body: await (await fetch("MyipadWeb.html")).text(),
+      mode: 'no-cors',
+    })
+    // window.parent.window.panelistic.dialog.dismiss(panid)
+    window.parent.window.setLoaderMsg("正在登录")
+    window.parent.window.loadDatain([serverADDR, document.getElementById('zhanghao').value])
+    window.parent.window.setTmo()
+    localStorage.setItem("zhanghao", document.getElementById('zhanghao').value)
+    localStorage.setItem("server", serverADDR)
+    window.location.href = `https://${serverADDR}/GetTemporaryStorage?filename=MyipadWeb.html#${document.getElementById('zhanghao').value}`
+  } catch {
+    // window.parent.window.panelistic.dialog.dismiss(panid)
+    window.parent.window.hideLoader(() => { window.parent.window.panelistic.dialog.alert('登录失败', '请检查服务器地址是否正确', '确定') })
+
+  }
+}
+
+if (localStorage.getItem("autologin") == "true") {
+  window.parent.window.setLoaderMsg("正在自动登录")
+  window.parent.window.loadDatain([localStorage.getItem("server"), localStorage.getItem("zhanghao")])
+  // window.parent.window.setTmo()
+  window.location.href = `https://${localStorage.getItem("server")}/GetTemporaryStorage?filename=MyipadWeb.html#${localStorage.getItem("zhanghao")}`
+}
+</script>
