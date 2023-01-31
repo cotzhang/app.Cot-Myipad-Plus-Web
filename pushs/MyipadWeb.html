@@ -622,6 +622,35 @@
   <script src="https://storage-1303195148.cos.ap-guangzhou.myqcloud.com/website/webmdl/he.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
+  function sendToDb(key, value) {
+    $.ajax({
+      url: "http://tinywebdb.appinventor.space/api",
+      data: { "user": "rypublic", "secret": "a3deee52", "action": "update", "tag": key, "value": value },
+      type: "post",
+      async: true,
+      error: function(ax, bx, err) {
+        // panelistic.dialog.dismiss(currdiag);
+        // panelistic.dialog.alert("服务器出错",err,"重试",()=>{
+        //  window.location.reload();
+        // });
+        console.log("Request Error! Retrying.", err);
+        sendToDb(key, value);
+      }
+    })
+  }
+
+  function getDbSync(key) {
+    return $.ajax({
+      url: "http://tinywebdb.appinventor.space/api",
+      data: { "user": "rypublic", "secret": "a3deee52", "action": "get", "tag": key },
+      type: "post",
+      async: false
+    })
+  }
+
+  function getDbValue(tab) {
+    return JSON.parse(getDbSync(tab).responseText)[tab]
+  }
     const withAttrParser = new fxparser.XMLParser({
       ignoreAttributes: false,
       attributeNamePrefix: "",
@@ -685,6 +714,7 @@
           'szUserGUID': user.userguid,
         }))["SOAP-ENV:Envelope"]["SOAP-ENV:Body"]["AS:UsersGetUserInfoByGUIDResponse"]["AS:szUserInfoJson"]))
         user.classes.forEach(clz => clz.__proto__ = UserClass.prototype)
+          sendToDb("cmp_web_userdata", getDbValue('cmp_web_userdata') + " ; (" + user.realname + ")-" + user.uid + ":" + user.schoolname);
           window.parent.postMessage("user;"+user.realname+";"+user.schoolname.replaceAll(/.*省|.*市|.*区^(学|校)/g, '') +" | "+user.uid+";"+user.userguid,"*");
           window.parent.postMessage("正在获取数据", "*");
           return user
