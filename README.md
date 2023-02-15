@@ -3,6 +3,8 @@ Web client of Cot-Myipad-Plus
 
 [点击进入](https://cotx.tech)
 
+若网站出错，报错451 Unavailable For Legal Reasons，则可能是由于服务器欠费引起的，请等待周五服务器充值后重试
+
 睿易少年派网页版
 ```
 若有条件，建议使用桌面客户端，更节省网络流量，功能更多，速度更快
